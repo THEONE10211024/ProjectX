@@ -80,11 +80,12 @@ public class InfoActivity extends AppCompatActivity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int y = datePicker.getYear();
+                String date = String.format("%d-%02d-%02d",datePicker.getYear(),datePicker.getMonth(),datePicker.getDayOfMonth());
                 if (etStartTime.getId() == id) {
-                    etStartTime.setText(y + "");
+//                    etStartTime.setText(date);
+                    etStartTime.setText("2015-12-23");
                 } else {
-                    etEndTime.setText(y + "");
+                    etEndTime.setText("2015-12-31");
                 }
                 dismissDialog(id);
             }

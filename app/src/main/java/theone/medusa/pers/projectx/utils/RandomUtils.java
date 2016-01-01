@@ -9,6 +9,9 @@ import java.util.Random;
  */
 public class RandomUtils {
     public static<T> List<T> randomSelectN(T[] objects,int n){
+        if(objects.length < n){
+            throw new IllegalArgumentException("array's length must be more than n");
+        }
         Random random = new Random();
         List<T> result = new ArrayList<>();
         int length = objects.length;
