@@ -39,4 +39,11 @@
         android:id="@+id/et_days"
         android:hint="总共天数" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="生成行程"
+        android:id="@+id/btn_journey_start"
+        android:layout_gravity="center_horizontal" />
+
 </LinearLayout>
