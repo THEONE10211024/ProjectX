@@ -34,7 +34,8 @@ public class JourneyListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journey_list);
         ButterKnife.bind(this);
-        EventBus.getDefault().register(this);
+        EventBus.getDefault().registerSticky(this);
+
     }
 
     public void onEventMainThread(JourneyEvent event) {
@@ -46,11 +47,14 @@ public class JourneyListActivity extends AppCompatActivity {
     private List<JourneyBean> createMockData(JourneyEvent event) {
         Calendar startTime = string2Calendar(event.getStartTime(), "yyyy-MM-dd");
         Calendar endTime = string2Calendar(event.getEndTime(), "yyyy-MM-dd");
-        int diffDay =(int)((endTime.getTimeInMillis() - startTime.getTimeInMillis())/(24*3600*1000));
-        String [] days = new String[diffDay];
-        for(int i = 0;i < days.length;i++){
-            days[i] = startTime.toString();
-            startTime.add(Calendar.DAY_OF_MONTH,1);
+        int diffDay = (int) ((endTime.getTimeInMillis() - startTime.getTimeInMillis()) / (24 * 3600 * 1000));
+        String[] days = new String[diffDay];
+        for (int i = 0; i < days.length; i++) {
+            int week = startTime.get(Calendar.DAY_OF_WEEK)-1;
+            if(week != 6 && week != 0){
+                days[i] = calendar2String(startTime,"yyyy-MM-dd");
+            }
+            startTime.add(Calendar.DAY_OF_MONTH, 1);
         }
         List<String> randomTimes = RandomUtils.randomSelectN(days, event.getDayCount());
         List<JourneyBean> journeyBeans = new ArrayList<>();
@@ -70,18 +74,19 @@ public class JourneyListActivity extends AppCompatActivity {
      * 9点-10点：80%
      * 10点-11点：15%
      * 11点-2点：5%
+     *
      * @param time
      * @return
      */
-    private String getFormattedTime(String time){
+    private String getFormattedTime(String time) {
         Random random = new Random();
         int x = random.nextInt(100);
-        if(x<80){
-           return String.format(time+"21:%02d",random.nextInt(60));
-        }else if(x<95){
-            return String.format(time+"22:%02d",random.nextInt(60));
-        }else{
-            return String.format(time+"%02d:%02d",(random.nextInt(4)+23)%24,random.nextInt(60));
+        if (x < 80) {
+            return String.format(time + "21:%02d", random.nextInt(60));
+        } else if (x < 95) {
+            return String.format(time + "22:%02d", random.nextInt(60));
+        } else {
+            return String.format(time + "%02d:%02d", (random.nextInt(4) + 23) % 24, random.nextInt(60));
         }
     }
 
@@ -89,15 +94,17 @@ public class JourneyListActivity extends AppCompatActivity {
      * 车型
      * 快车：70%
      * 专车：30%
+     *
      * @return
      */
-    private String getCarType(){
+    private String getCarType() {
         Random random = new Random();
         int x = random.nextInt(100);
-        return x<70 ? "快车":"专车";
+        return x < 70 ? "快车" : "专车";
     }
-    private Calendar string2Calendar(String time, String pattern){
-        SimpleDateFormat sdf= new SimpleDateFormat(pattern);
+
+    private Calendar string2Calendar(String time, String pattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
         try {
             Date date = sdf.parse(time);
             Calendar calendar = Calendar.getInstance();
@@ -107,6 +114,11 @@ public class JourneyListActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private String calendar2String(Calendar calendar, String pattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        return sdf.format(calendar.getTime());
     }
 
     @Override

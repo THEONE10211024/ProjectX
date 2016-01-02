@@ -52,8 +52,8 @@ public class InfoActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_journey_start)
     public void startJourneyListActivity(){
-        EventBus.getDefault().post(getJourenyInfo());
         startActivity(new Intent(this,JourneyListActivity.class));
+        EventBus.getDefault().postSticky(getJourenyInfo());
     }
     private JourneyEvent getJourenyInfo(){
         JourneyEvent journeyEvent = new JourneyEvent();
