@@ -8,7 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -47,23 +50,28 @@ public class JourneyListActivity extends AppCompatActivity {
     private List<JourneyBean> createMockData(JourneyEvent event) {
         Calendar startTime = string2Calendar(event.getStartTime(), "yyyy-MM-dd");
         Calendar endTime = string2Calendar(event.getEndTime(), "yyyy-MM-dd");
-        int diffDay = (int) ((endTime.getTimeInMillis() - startTime.getTimeInMillis()) / (24 * 3600 * 1000));
-        String[] days = new String[diffDay];
-        for (int i = 0; i < days.length; i++) {
-            int week = startTime.get(Calendar.DAY_OF_WEEK)-1;
+//        int diffDay = (int) ((endTime.getTimeInMillis() - startTime.getTimeInMillis()) / (24 * 3600 * 1000));
+//        String[] days = new String[diffDay];
+        List<String> days = new ArrayList<>();
+        Calendar timeIterator = startTime;
+        while (!timeIterator.after(endTime)){
+            int week = timeIterator.get(Calendar.DAY_OF_WEEK)-1;
             if(week != 6 && week != 0){
-                days[i] = calendar2String(startTime,"yyyy-MM-dd");
+                days.add(calendar2String(startTime, "yyyy-MM-dd"));
             }
-            startTime.add(Calendar.DAY_OF_MONTH, 1);
+            timeIterator.add(Calendar.DAY_OF_MONTH, 1);
         }
-        List<String> randomTimes = RandomUtils.randomSelectN(days, event.getDayCount());
+
+//        String[] randomTimes = RandomUtils.randomSelectN(days, event.getDayCount());
+        int[] randomIndex = RandomUtils.randomSelectIndex(days.size(),event.getDayCount());
+        Arrays.sort(randomIndex);
         List<JourneyBean> journeyBeans = new ArrayList<>();
-        for (int i = 0, j = randomTimes.size(); i < j; i++) {
+        for (int i:randomIndex) {
             JourneyBean journeyBean = new JourneyBean();
             journeyBean.setStartPlace(event.getStartPlace());
             journeyBean.setEndPlace(event.getEndPlace());
             journeyBean.setCarType(getCarType());
-            journeyBean.setTime(getFormattedTime(randomTimes.get(i)));
+            journeyBean.setTime(getFormattedTime(days.get(i)));
             journeyBeans.add(journeyBean);
         }
         return journeyBeans;
