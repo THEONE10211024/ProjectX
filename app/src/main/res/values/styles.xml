@@ -1,11 +1,15 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/ce6454a</item>
+        <item name="colorPrimaryDark">@color/ce6454a</item>
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="Theme.DiDi" parent="@android:style/Theme.Light.NoTitleBar">
+        <!--<item name="android:windowAnimationStyle">@style/Animation.Activity.Wuba</item>-->
+        <item name="android:windowBackground">@android:color/white</item>
     </style>
     <style name="popuStyle">
         <item name="android:windowEnterAnimation">@anim/popup_anim_in</item>

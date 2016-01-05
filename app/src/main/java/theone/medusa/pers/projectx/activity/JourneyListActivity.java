@@ -50,8 +50,6 @@ public class JourneyListActivity extends AppCompatActivity {
     private List<JourneyBean> createMockData(JourneyEvent event) {
         Calendar startTime = string2Calendar(event.getStartTime(), "yyyy-MM-dd");
         Calendar endTime = string2Calendar(event.getEndTime(), "yyyy-MM-dd");
-//        int diffDay = (int) ((endTime.getTimeInMillis() - startTime.getTimeInMillis()) / (24 * 3600 * 1000));
-//        String[] days = new String[diffDay];
         List<String> days = new ArrayList<>();
         Calendar timeIterator = startTime;
         while (!timeIterator.after(endTime)){
