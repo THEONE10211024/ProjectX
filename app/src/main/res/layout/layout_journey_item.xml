@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:text="北美国际商务中心"
         android:id="@+id/tv_start_place"
-        android:drawableLeft="@drawable/ic_start"
+        android:drawableLeft="@drawable/common_icon_tips_green"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -44,7 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_start"
+        android:drawableLeft="@drawable/common_icon_tips_red"
         android:text="天鑫家园"
         android:id="@+id/tv_end_place"
         android:layout_below="@+id/tv_start_place"

@@ -8,28 +8,31 @@
     <RelativeLayout
         android:id="@+id/layout_header"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="40dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="编辑"
+            android:textSize="12sp"
             android:id="@+id/tv_right_text"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="我的行程"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
             android:id="@+id/tv_title"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:id="@+id/img_back"
+            android:src="@drawable/car_common_title_bar_ic_back_normal"
+            android:layout_marginLeft="9dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"/>
     </RelativeLayout>
