@@ -15,6 +15,7 @@
             android:text="编辑"
             android:textSize="12sp"
             android:id="@+id/tv_right_text"
+            android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"/>
         <TextView
