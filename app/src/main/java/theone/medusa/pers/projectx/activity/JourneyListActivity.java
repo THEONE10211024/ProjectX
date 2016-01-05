@@ -1,5 +1,6 @@
 package theone.medusa.pers.projectx.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,13 +39,13 @@ public class JourneyListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_journey_list);
         ButterKnife.bind(this);
         EventBus.getDefault().registerSticky(this);
-
     }
 
     public void onEventMainThread(JourneyEvent event) {
         journeyListAdapter = new JourneyListAdapter(createMockData(event));
         rvJourneyList.setAdapter(journeyListAdapter);
         rvJourneyList.setLayoutManager(new LinearLayoutManager(this));
+//        rvJourneyList.
     }
 
     private List<JourneyBean> createMockData(JourneyEvent event) {
@@ -55,7 +56,7 @@ public class JourneyListActivity extends AppCompatActivity {
         while (!timeIterator.after(endTime)){
             int week = timeIterator.get(Calendar.DAY_OF_WEEK)-1;
             if(week != 6 && week != 0){
-                days.add(calendar2String(startTime, "yyyy-MM-dd"));
+                days.add(calendar2String(startTime, "MM-dd"));
             }
             timeIterator.add(Calendar.DAY_OF_MONTH, 1);
         }

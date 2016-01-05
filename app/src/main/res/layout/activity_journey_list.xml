@@ -7,6 +7,7 @@
 
     <RelativeLayout
         android:id="@+id/layout_header"
+        android:background="@color/cfafafa"
         android:layout_width="match_parent"
         android:layout_height="40dp">
         <TextView
@@ -15,6 +16,7 @@
             android:text="编辑"
             android:textSize="12sp"
             android:id="@+id/tv_right_text"
+            android:textColor="@color/ce4e4e4"
             android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"/>
@@ -40,8 +42,10 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_height="23dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@color/cf0f0f0"
         android:text="已完成订单"
         android:id="@+id/tv_order_finished"
         android:layout_below="@+id/layout_header"

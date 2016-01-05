@@ -12,11 +12,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import butterknife.OnFocusChange;
 import de.greenrobot.event.EventBus;
 import theone.medusa.pers.projectx.R;
 import theone.medusa.pers.projectx.event.JourneyEvent;
@@ -28,9 +28,9 @@ public class InfoActivity extends AppCompatActivity {
     @Bind(R.id.et_end_place)
     EditText etEndPlace;
     @Bind(R.id.et_start_time)
-    EditText etStartTime;
+    TextView tvStartTime;
     @Bind(R.id.et_end_time)
-    EditText etEndTime;
+    TextView tvEndTime;
     @Bind(R.id.et_days)
     EditText etDays;
     @Bind(R.id.btn_journey_start)
@@ -43,27 +43,27 @@ public class InfoActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnFocusChange({R.id.et_start_time, R.id.et_end_time})
-    public void onFocusChange(View view, boolean hasFocus) {
-        if (hasFocus) {
-            this.showDialog(view.getId());
-        }
+    @OnClick({R.id.et_start_time, R.id.et_end_time})
+    public void onTimeChange(View view) {
+        this.showDialog(view.getId());
     }
 
     @OnClick(R.id.btn_journey_start)
-    public void startJourneyListActivity(){
-        startActivity(new Intent(this,JourneyListActivity.class));
+    public void startJourneyListActivity() {
+        startActivity(new Intent(this, JourneyListActivity.class));
         EventBus.getDefault().postSticky(getJourenyInfo());
     }
-    private JourneyEvent getJourenyInfo(){
+
+    private JourneyEvent getJourenyInfo() {
         JourneyEvent journeyEvent = new JourneyEvent();
         journeyEvent.setStartPlace(etStartPlace.getText().toString());
         journeyEvent.setEndPlace(etEndPlace.getText().toString());
-        journeyEvent.setStartTime(etStartTime.getText().toString());
-        journeyEvent.setEndTime(etEndTime.getText().toString());
+        journeyEvent.setStartTime(tvStartTime.getText().toString());
+        journeyEvent.setEndTime(tvEndTime.getText().toString());
         journeyEvent.setDayCount(Integer.parseInt(etDays.getText().toString()));
         return journeyEvent;
     }
+
     @Override
     protected Dialog onCreateDialog(final int id) {
         Dialog dialog = new Dialog(this);
@@ -80,12 +80,12 @@ public class InfoActivity extends AppCompatActivity {
         btnOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String date = String.format("%d-%02d-%02d",datePicker.getYear(),datePicker.getMonth()+1,datePicker.getDayOfMonth());
-                if (etStartTime.getId() == id) {
-                    etStartTime.setText(date);
-//                    etStartTime.setText("2015-12-23");
+                String date = String.format("%d-%02d-%02d", datePicker.getYear(), datePicker.getMonth() + 1, datePicker.getDayOfMonth());
+                if (tvStartTime.getId() == id) {
+                    tvStartTime.setText(date);
+//                    tvStartTime.setText("2015-12-23");
                 } else {
-                    etEndTime.setText(date);
+                    tvEndTime.setText(date);
                 }
                 dismissDialog(id);
             }
