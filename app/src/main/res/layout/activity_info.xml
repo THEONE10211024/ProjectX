@@ -46,6 +46,7 @@
         android:layout_height="wrap_content"
         android:text="生成行程"
         android:id="@+id/btn_journey_start"
+        android:enabled="false"
         android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="编辑"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:id="@+id/tv_right_text"
             android:textColor="@color/c8e8e8e"
             android:layout_marginRight="10dp"
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="我的行程"
-            android:textSize="16sp"
+            android:textSize="19sp"
             android:textColor="@android:color/black"
             android:id="@+id/tv_title"
             android:layout_centerVertical="true"
@@ -44,7 +44,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/line"
-        android:background="@color/ce9e9e9"/>
+        android:background="@color/cd6d6d6"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="23dp"
@@ -52,6 +52,7 @@
         android:paddingLeft="10dp"
         android:background="@color/cf0f0f0"
         android:text="已完成订单"
+        android:textSize="12dp"
         android:id="@+id/tv_order_finished"
         android:layout_below="@+id/layout_header"
         android:layout_alignParentLeft="true"
@@ -59,7 +60,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/line"
-        android:background="@color/ce9e9e9"/>
+        android:background="@color/cd6d6d6"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
