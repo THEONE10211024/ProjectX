@@ -56,7 +56,7 @@ public class JourneyListActivity extends AppCompatActivity {
         while (!timeIterator.after(endTime)){
             int week = timeIterator.get(Calendar.DAY_OF_WEEK)-1;
             if(week != 6 && week != 0){
-                days.add(calendar2String(startTime, "MM-dd"));
+                days.add(calendar2String(startTime, "MM月dd日"));
             }
             timeIterator.add(Calendar.DAY_OF_MONTH, 1);
         }
@@ -89,11 +89,11 @@ public class JourneyListActivity extends AppCompatActivity {
         Random random = new Random();
         int x = random.nextInt(100);
         if (x < 80) {
-            return String.format(time + "21:%02d", random.nextInt(60));
+            return String.format(time + " 21:%02d", random.nextInt(60));
         } else if (x < 95) {
-            return String.format(time + "22:%02d", random.nextInt(60));
+            return String.format(time + " 22:%02d", random.nextInt(60));
         } else {
-            return String.format(time + "%02d:%02d", (random.nextInt(4) + 23) % 24, random.nextInt(60));
+            return String.format(time + " %02d:%02d", (random.nextInt(4) + 23) % 24, random.nextInt(60));
         }
     }
 

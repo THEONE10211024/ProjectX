@@ -10,7 +10,7 @@
     android:background="@android:color/white"
     android:paddingLeft="10dp"
     android:paddingTop="13dp"
-    android:paddingBottom="13dp"
+    android:paddingBottom="15dp"
     android:paddingRight="10dp">
     <TextView
         android:layout_width="wrap_content"
@@ -23,8 +23,8 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="16.5dp"
+        android:layout_width="32dp"
+        android:layout_height="18.5dp"
         android:id="@+id/img_car"
         android:layout_marginLeft="11dp"
         android:src="@drawable/label_fastcar"
@@ -74,6 +74,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@color/cf8f8f8" />
+        android:background="#d6d6d6" />
 
 </LinearLayout>
