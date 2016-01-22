@@ -5,7 +5,7 @@ package theone.medusa.pers.projectx.bean;
  */
 public class JourneyBean {
     private String time;
-    private String carType;
+    private int carTypeSrcId;
     private String state;
     private String startPlace;
     private String endPlace;
@@ -18,12 +18,12 @@ public class JourneyBean {
         this.time = time;
     }
 
-    public String getCarType() {
-        return carType;
+    public int getCarTypeSrcId() {
+        return carTypeSrcId;
     }
 
-    public void setCarType(String carType) {
-        this.carType = carType;
+    public void setCarTypeSrcId(int carTypeSrcId) {
+        this.carTypeSrcId = carTypeSrcId;
     }
 
     public String getState() {

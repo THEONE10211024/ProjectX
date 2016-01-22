@@ -17,17 +17,17 @@
         android:layout_height="wrap_content"
         android:text="01月05日 9:25"
         android:id="@+id/tv_time"
+        android:textColor="@color/c7d7d7d"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="快车"
-        android:id="@+id/tv_car"
-        android:textColor="@color/cb6b6b6"
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="16.5dp"
+        android:id="@+id/img_car"
         android:layout_marginLeft="11dp"
+        android:src="@drawable/label_fastcar"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/tv_time"
         android:layout_toEndOf="@+id/tv_time" />
@@ -38,8 +38,7 @@
         android:text="已完成"
         android:id="@+id/tv_state"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentRight="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -47,27 +46,27 @@
         android:drawablePadding="8dp"
         android:text="北美国际商务中心"
         android:id="@+id/tv_start_place"
+        android:layout_below="@id/tv_time"
+        android:layout_marginTop="8dp"
         android:drawableLeft="@drawable/common_icon_tips_green"
-        android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/common_icon_tips_red"
         android:drawablePadding="8dp"
+        android:layout_marginTop="8dp"
         android:text="天鑫家园"
         android:id="@+id/tv_end_place"
         android:layout_below="@+id/tv_start_place"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentLeft="true" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:src="@drawable/right_arrow"
+        android:src="@drawable/map_icon_bubble_arrow"
         android:layout_marginRight="3dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true" />
@@ -75,6 +74,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="@android:color/background_dark" />
+        android:background="@color/cf8f8f8" />
 
 </LinearLayout>

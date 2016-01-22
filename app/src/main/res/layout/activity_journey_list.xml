@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="theone.medusa.pers.projectx.activity.JourneyListActivity">
 
     <RelativeLayout
@@ -16,7 +17,7 @@
             android:text="编辑"
             android:textSize="12sp"
             android:id="@+id/tv_right_text"
-            android:textColor="@color/ce4e4e4"
+            android:textColor="@color/c8e8e8e"
             android:layout_marginRight="10dp"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"/>
@@ -40,6 +41,10 @@
             android:layout_alignParentLeft="true"/>
     </RelativeLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line"
+        android:background="@color/ce9e9e9"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="23dp"
@@ -51,10 +56,14 @@
         android:layout_below="@+id/layout_header"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line"
+        android:background="@color/ce9e9e9"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_order_finished"
         android:id="@+id/rv_journey_list"/>
-</RelativeLayout>
+</LinearLayout>

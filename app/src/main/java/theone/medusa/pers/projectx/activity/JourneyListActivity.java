@@ -69,7 +69,7 @@ public class JourneyListActivity extends AppCompatActivity {
             JourneyBean journeyBean = new JourneyBean();
             journeyBean.setStartPlace(event.getStartPlace());
             journeyBean.setEndPlace(event.getEndPlace());
-            journeyBean.setCarType(getCarType());
+            journeyBean.setCarTypeSrcId(getCarType());
             journeyBean.setTime(getFormattedTime(days.get(i)));
             journeyBeans.add(journeyBean);
         }
@@ -104,10 +104,10 @@ public class JourneyListActivity extends AppCompatActivity {
      *
      * @return
      */
-    private String getCarType() {
+    private int getCarType() {
         Random random = new Random();
         int x = random.nextInt(100);
-        return x < 70 ? "快车" : "专车";
+        return x < 70 ? R.drawable.label_fastcar :R.drawable.label_premium;
     }
 
     private Calendar string2Calendar(String time, String pattern) {

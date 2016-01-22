@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -32,7 +33,7 @@ public class JourneyListAdapter extends RecyclerView.Adapter<JourneyListAdapter.
         holder.startPlace.setText(journeyBean.getStartPlace());
         holder.endPlace.setText(journeyBean.getEndPlace());
         holder.serviceTime.setText(journeyBean.getTime());
-        holder.carType.setText(journeyBean.getCarType());
+        holder.carType.setImageResource(journeyBean.getCarTypeSrcId());
     }
 
     @Override
@@ -44,13 +45,13 @@ public class JourneyListAdapter extends RecyclerView.Adapter<JourneyListAdapter.
         public TextView startPlace;
         public TextView endPlace;
         public TextView serviceTime;
-        public TextView carType;
+        public ImageView carType;
         public ItemViewHolder(View itemView) {
             super(itemView);
             startPlace = (TextView) itemView.findViewById(R.id.tv_start_place);
             endPlace = (TextView) itemView.findViewById(R.id.tv_end_place);
             serviceTime = (TextView) itemView.findViewById(R.id.tv_time);
-            carType = (TextView) itemView.findViewById(R.id.tv_car);
+            carType = (ImageView) itemView.findViewById(R.id.img_car);
         }
     }
 }
