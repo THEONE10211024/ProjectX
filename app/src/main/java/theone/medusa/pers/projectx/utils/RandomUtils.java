@@ -44,7 +44,8 @@ public class RandomUtils {
      */
     public static Integer[] randomSelectIndex(int size,int k){
         if(size < k){
-            throw new IllegalArgumentException("size must be bigger than k!");
+//            throw new IllegalArgumentException("size must be bigger than k!");
+            k = size;
         }
         Integer[] index = new Integer[k];
         for(int i=0;i<k;i++){
