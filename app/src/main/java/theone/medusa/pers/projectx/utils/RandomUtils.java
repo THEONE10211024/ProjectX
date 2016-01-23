@@ -42,11 +42,11 @@ public class RandomUtils {
      * @param k
      * @return
      */
-    public static int[] randomSelectIndex(int size,int k){
+    public static Integer[] randomSelectIndex(int size,int k){
         if(size < k){
             throw new IllegalArgumentException("size must be bigger than k!");
         }
-        int[] index = new int[k];
+        Integer[] index = new Integer[k];
         for(int i=0;i<k;i++){
             index[i] = i;
         }

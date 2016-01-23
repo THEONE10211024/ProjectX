@@ -13,6 +13,7 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -22,7 +23,6 @@ import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 import theone.medusa.pers.projectx.R;
 import theone.medusa.pers.projectx.adapter.JourneyListAdapter;
-import theone.medusa.pers.projectx.adapter.JourneyListAdapter2;
 import theone.medusa.pers.projectx.bean.JourneyBean;
 import theone.medusa.pers.projectx.event.JourneyEvent;
 import theone.medusa.pers.projectx.utils.RandomUtils;
@@ -46,6 +46,7 @@ public class JourneyListActivity extends AppCompatActivity {
         journeyListAdapter = new JourneyListAdapter(createMockData(event));
         rvJourneyList.setAdapter(journeyListAdapter);
         rvJourneyList.setLayoutManager(new LinearLayoutManager(this));
+//        rvJourneyList.
     }
 
     private List<JourneyBean> createMockData(JourneyEvent event) {
@@ -61,8 +62,14 @@ public class JourneyListActivity extends AppCompatActivity {
             timeIterator.add(Calendar.DAY_OF_MONTH, 1);
         }
 
-        int[] randomIndex = RandomUtils.randomSelectIndex(days.size(),event.getDayCount());
-        Arrays.sort(randomIndex);
+//        String[] randomTimes = RandomUtils.randomSelectN(days, event.getDayCount());
+        Integer[] randomIndex = RandomUtils.randomSelectIndex(days.size(),event.getDayCount());
+        Arrays.sort(randomIndex, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer lhs, Integer rhs) {
+                return rhs-lhs;
+            }
+        });
         List<JourneyBean> journeyBeans = new ArrayList<>();
         for (int i:randomIndex) {
             JourneyBean journeyBean = new JourneyBean();
