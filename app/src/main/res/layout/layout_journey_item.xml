@@ -10,7 +10,7 @@
     android:background="@android:color/white"
     android:paddingLeft="10dp"
     android:paddingTop="13dp"
-    android:paddingBottom="15dp"
+    android:paddingBottom="13dp"
     android:paddingRight="10dp">
     <TextView
         android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
 
     <ImageView
         android:layout_width="32dp"
-        android:layout_height="18.5dp"
+        android:layout_height="17.5dp"
         android:id="@+id/img_car"
         android:layout_marginLeft="11dp"
         android:src="@drawable/label_fastcar"
@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:text="已完成"
         android:id="@+id/tv_state"
+        android:textSize="14dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true" />
 
@@ -66,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        android:src="@drawable/map_icon_bubble_arrow"
+        android:src="@drawable/car_common_car_icn_arrow"
         android:layout_marginRight="3dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true" />
@@ -74,6 +75,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#d6d6d6" />
+        android:background="@color/cd6d6d6" />
 
 </LinearLayout>
